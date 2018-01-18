@@ -26,6 +26,11 @@ module.exports = {
         SingleSupportForm: './lms/static/support/jsx/single_support_form.jsx',
         AlertStatusBar: './lms/static/js/accessible_components/StatusBarAlert.jsx',
         LearnerAnalyticsDashboard: './lms/static/js/learner_analytics_dashboard/LearnerAnalyticsDashboard.jsx',
+        CourseEntitlement: './lms/static/js/learner_dashboard/course_entitlement_factory.js',
+        CourseUnenrollment: './lms/static/js/learner_dashboard/unenrollment_factory.js',
+        EntitlementUnenrollment: './lms/static/js/learner_dashboard/entitlement_unenrollment_factory.js',
+        ProgramDetails: './lms/static/js/learner_dashboard/program_details_factory.js',
+        ProgramList: './lms/static/js/learner_dashboard/program_list_factory.js',
 
         // Features
         CourseGoals: './openedx/features/course_experience/static/course_experience/js/CourseGoals.js',
@@ -154,6 +159,7 @@ module.exports = {
         },
         modules: [
             'node_modules',
+            'common/static/',
             'common/static/js/vendor/'
         ]
     },
