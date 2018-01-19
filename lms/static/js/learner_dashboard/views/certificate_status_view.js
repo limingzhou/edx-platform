@@ -3,8 +3,8 @@ import Backbone from 'backbone';
 
 import HtmlUtils from 'edx-ui-toolkit/js/utils/html-utils';
 
-import certificateStatusTpl from 'text!../../../templates/learner_dashboard/certificate_status.underscore';
-import certificateIconTpl from 'text!../../../templates/learner_dashboard/certificate_icon.underscore';
+import certificateStatusTpl from '../../../templates/learner_dashboard/certificate_status.underscore';
+import certificateIconTpl from '../../../templates/learner_dashboard/certificate_icon.underscore';
 
 class CertificateStatusView extends Backbone.View {
   initialize(options) {

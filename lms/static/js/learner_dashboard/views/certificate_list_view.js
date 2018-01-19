@@ -2,7 +2,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import 'jquery';
 
-import certificateTpl from 'text!../../../templates/learner_dashboard/certificate_list.underscore';
+import certificateTpl from '../../../templates/learner_dashboard/certificate_list.underscore';
 
 class CertificateListView extends Backbone.View {
   initialize(options) {

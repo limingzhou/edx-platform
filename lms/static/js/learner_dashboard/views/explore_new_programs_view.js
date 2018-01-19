@@ -2,7 +2,7 @@ import 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 
-import exploreTpl from 'text!../../../templates/learner_dashboard/explore_new_programs.underscore';
+import exploreTpl from '../../../templates/learner_dashboard/explore_new_programs.underscore';
 
 class ExploreNewProgramsView extends Backbone.View {
   constructor(options) {

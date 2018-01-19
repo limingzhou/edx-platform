@@ -4,7 +4,7 @@ import Backbone from 'backbone';
 import HtmlUtils from 'edx-ui-toolkit/js/utils/html-utils';
 import StringUtils from 'edx-ui-toolkit/js/utils/string-utils';
 
-import emptyProgramsListTpl from 'text!../../../templates/learner_dashboard/empty_programs_list.underscore';
+import emptyProgramsListTpl from '../../../templates/learner_dashboard/empty_programs_list.underscore';
 
 class CollectionListView extends Backbone.View {
   initialize(data) {

@@ -1,12 +1,15 @@
 /* globals gettext */
 
-import Backbone from 'backbone';
 import 'jquery';
+import Backbone from 'backbone';
+
 import HtmlUtils from 'edx-ui-toolkit/js/utils/html-utils';
-import StringUtils from 'edx-ui-toolkit/js/utils/string-utils';
 import ProgramProgressView from 'common/js/components/views/progress_circle_view';
+import StringUtils from 'edx-ui-toolkit/js/utils/string-utils';
+
 import CertificateView from './certificate_list_view';
-import sidebarTpl from 'text!../../../templates/learner_dashboard/program_details_sidebar.underscore';
+
+import sidebarTpl from '../../../templates/learner_dashboard/program_details_sidebar.underscore';
 
 class ProgramDetailsSidebarView extends Backbone.View {
   initialize(options) {

@@ -10,7 +10,7 @@ import CollectionListView from './collection_list_view';
 import CourseCardView from './course_card_view';
 import SidebarView from './program_details_sidebar_view';
 
-import pageTpl from 'text!../../../templates/learner_dashboard/program_details_view.underscore';
+import pageTpl from '../../../templates/learner_dashboard/program_details_view.underscore';
 
 class ProgramDetailsView extends Backbone.View {
   constructor(options) {

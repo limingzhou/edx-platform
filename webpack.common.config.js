@@ -26,6 +26,8 @@ module.exports = {
         SingleSupportForm: './lms/static/support/jsx/single_support_form.jsx',
         AlertStatusBar: './lms/static/js/accessible_components/StatusBarAlert.jsx',
         LearnerAnalyticsDashboard: './lms/static/js/learner_analytics_dashboard/LearnerAnalyticsDashboard.jsx',
+
+        // Learner Dashboard
         CourseEntitlement: './lms/static/js/learner_dashboard/course_entitlement_factory.js',
         CourseUnenrollment: './lms/static/js/learner_dashboard/unenrollment_factory.js',
         EntitlementUnenrollment: './lms/static/js/learner_dashboard/entitlement_unenrollment_factory.js',

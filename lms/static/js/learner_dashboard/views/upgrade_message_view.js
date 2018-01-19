@@ -3,7 +3,7 @@ import Backbone from 'backbone';
 
 import HtmlUtils from 'edx-ui-toolkit/js/utils/html-utils';
 
-import upgradeMessageTpl from 'text!../../../templates/learner_dashboard/upgrade_message.underscore';
+import upgradeMessageTpl from '../../../templates/learner_dashboard/upgrade_message.underscore';
 
 class UpgradeMessageView extends Backbone.View {
   initialize(options) {

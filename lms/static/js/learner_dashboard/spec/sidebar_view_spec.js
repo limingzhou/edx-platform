@@ -1,53 +1,48 @@
-define([
-    'backbone',
-    'jquery',
-    'js/learner_dashboard/views/sidebar_view'
-], function(Backbone, $, SidebarView) {
-    'use strict';
-        /* jslint maxlen: 500 */
+/* globals setFixtures */
 
-    describe('Sidebar View', function() {
-        var view = null,
-            context = {
-                marketingUrl: 'https://www.example.org/programs'
-            };
+import 'jquery';
 
-        beforeEach(function() {
-            setFixtures('<div class="sidebar"></div>');
+import SidebarView from '../views/sidebar_view';
 
-            view = new SidebarView({
-                el: '.sidebar',
-                context: context
-            });
-            view.render();
-        });
+describe('Sidebar View', () => {
+  let view = null;
+  const context = {
+    marketingUrl: 'https://www.example.org/programs',
+  };
 
-        afterEach(function() {
-            view.remove();
-        });
+  beforeEach(() => {
+    setFixtures('<div class="sidebar"></div>');
 
-        it('should exist', function() {
-            expect(view).toBeDefined();
-        });
-
-        it('should load the exploration panel given a marketing URL', function() {
-            var $sidebar = view.$el;
-            expect($sidebar.find('.program-advertise .advertise-message').html().trim())
-                    .toEqual('Browse recently launched courses and see what\'s new in your favorite subjects');
-            expect($sidebar.find('.program-advertise .ad-link a').attr('href')).toEqual(context.marketingUrl);
-        });
-
-        it('should not load the advertising panel if no marketing URL is provided', function() {
-            var $ad;
-            view.remove();
-            view = new SidebarView({
-                el: '.sidebar',
-                context: {}
-            });
-            view.render();
-            $ad = view.$el.find('.program-advertise');
-            expect($ad.length).toBe(0);
-        });
+    view = new SidebarView({
+      el: '.sidebar',
+      context,
     });
-}
-);
+    view.render();
+  });
+
+  afterEach(() => {
+    view.remove();
+  });
+
+  it('should exist', () => {
+    expect(view).toBeDefined();
+  });
+
+  it('should load the exploration panel given a marketing URL', () => {
+    const $sidebar = view.$el;
+    expect($sidebar.find('.program-advertise .advertise-message').html().trim())
+                    .toEqual('Browse recently launched courses and see what\'s new in your favorite subjects');
+    expect($sidebar.find('.program-advertise .ad-link a').attr('href')).toEqual(context.marketingUrl);
+  });
+
+  it('should not load the advertising panel if no marketing URL is provided', () => {
+    view.remove();
+    view = new SidebarView({
+      el: '.sidebar',
+      context: {},
+    });
+    view.render();
+    const $ad = view.$el.find('.program-advertise');
+    expect($ad.length).toBe(0);
+  });
+});

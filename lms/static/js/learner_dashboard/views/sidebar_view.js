@@ -4,7 +4,7 @@ import Backbone from 'backbone';
 
 import NewProgramsView from './explore_new_programs_view';
 
-import sidebarTpl from 'text!../../../templates/learner_dashboard/sidebar.underscore';
+import sidebarTpl from '../../../templates/learner_dashboard/sidebar.underscore';
 
 class SidebarView extends Backbone.View {
   constructor(options) {

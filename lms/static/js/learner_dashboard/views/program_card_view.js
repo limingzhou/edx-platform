@@ -5,7 +5,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import picturefill from 'picturefill';
 
-import programCardTpl from 'text!../../../templates/learner_dashboard/program_card.underscore';
+import programCardTpl from '../../../templates/learner_dashboard/program_card.underscore';
 
 class ProgramCardView extends Backbone.View {
   constructor(options) {
