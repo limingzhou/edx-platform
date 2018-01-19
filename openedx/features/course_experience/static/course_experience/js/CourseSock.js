@@ -55,6 +55,10 @@ export class CourseSock {  // eslint-disable-line import/prefer-default-export
       $toggleActionButton.toggleClass('active').toggleClass('aria-expanded');
       $verificationSock.slideToggle(toggleSpeed, fixUpgradeButton);
 
+      // Toggle aria-expanded attribute
+      const newAriaExpandedState = !!$toggleActionButton.attr('aria-expanded') ? 'false' : 'true';
+      $toggleActionButton.attr('aria-expanded', newAriaExpandedState);
+
       // Log open and close events
       const isOpening = $toggleActionButton.hasClass('active');
       const logMessage = isOpening ? 'edx.bi.course.sock.toggle_opened'

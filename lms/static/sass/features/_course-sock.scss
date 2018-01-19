@@ -48,6 +48,14 @@
       color: $black-t3;
       position: relative;
 
+      h1 {
+        font-size: $font-size-lg;
+      }
+
+      h2 {
+        font-size: $font-size-sm;
+      }
+
       @media (max-width: 960px) {
         .mini-cert {
           display: none;
