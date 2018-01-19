@@ -141,9 +141,9 @@ def reset_test_database():
     If not, reset the test database and apply migrations
     """
     if os.environ.get('USER', None) == 'jenkins':
-        update_local_bokchoy_db_from_s3()
+        update_local_bokchoy_db_from_s3()  # pylint: disable=no-value-for-parameter
     else:
-        sh("{}/scripts/reset-test-db.sh --migrations".format(Env.REPO_ROOT))  # pylint: disable=no-value-for-parameter
+        sh("{}/scripts/reset-test-db.sh --migrations".format(Env.REPO_ROOT))
 
 
 @task
