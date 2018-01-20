@@ -256,7 +256,6 @@ class MongoContentStore(ContentStore):
             })
         if filter_params:
             query.update(filter_params)
-
         items = self.fs_files.find(query, **find_args)
         count = items.count()
         assets = list(items)
@@ -510,15 +509,6 @@ class MongoContentStore(ContentStore):
             sparse=True,
             background=True
         )
-        create_collection_index(
-            self.fs_files,
-            [
-                ('displayname', pymongo.TEXT)
-            ],
-            sparse=True,
-            background=True
-        )
-
 
 def query_for_course(course_key, category=None):
     """

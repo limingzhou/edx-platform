@@ -2,6 +2,7 @@ import json
 import logging
 import math
 from functools import partial
+import re
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -115,7 +116,6 @@ def _assets_json(request, course_key):
     Supports start (0-based index into the list of assets) and max query parameters.
     '''
     request_options = _parse_request_to_dictionary(request)
-    country_code = request.LANGUAGE_CODE.split('-')[0]
 
     filter_parameters = {}
 
@@ -128,8 +128,7 @@ def _assets_json(request, course_key):
         filter_parameters.update(_get_content_type_filter_for_mongo(request_options['requested_asset_type']))
 
     if request_options['requested_text_search']:
-        filter_parameters.update(_get_text_search_filter_for_mongo(request_options['requested_text_search'],
-                                                                   country_code))
+        filter_parameters.update(_get_displayname_search_filter_for_mongo(request_options['requested_text_search']))
 
     sort_type_and_direction = _get_sort_type_and_direction(request_options)
 
@@ -256,15 +255,26 @@ def _get_mongo_expression_for_type_filter(requested_file_types):
     }
 
 
-def _get_text_search_filter_for_mongo(text_search, country_code):
+def _get_displayname_search_filter_for_mongo(text_search):
     """
-    Return a pymongo query dict for the given search string and language (country_code).
+    Return a pymongo query dict for the given search string, using case insensitivity.
     """
+    filters = []
+
+    text_search_tokens = text_search.split()
+
+    for token in text_search_tokens:
+        escaped_token = re.escape(token)
+
+        filters.append({
+            'displayname': {
+                '$regex': escaped_token,
+                '$options': 'i',
+            },
+        })
+
     return {
-        '$text': {
-            '$search': text_search,
-            '$language': country_code,
-        },
+        '$and': filters,
     }
 
 
@@ -313,7 +323,6 @@ def _get_assets_for_page(course_key, options):
     sort = options['sort']
     filter_params = options['filter_params'] if options['filter_params'] else None
     start = current_page * page_size
-
     return contentstore().get_all_content_for_course(
         course_key, start=start, maxresults=page_size, sort=sort, filter_params=filter_params
     )
