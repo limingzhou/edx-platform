@@ -510,6 +510,7 @@ class MongoContentStore(ContentStore):
             background=True
         )
 
+
 def query_for_course(course_key, category=None):
     """
     Construct a SON object that will query for all assets possibly limited to the given type
